@@ -1,0 +1,102 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+html, body {
+   height: 100%;
+}
+
+@font-face {
+   font-family: 'Cute_Font';
+   src: url('/fonts/Cute_Font.ttf') format('truetype')
+}
+/*===================================================================================================================*/
+
+
+body {
+
+   background: linear-gradient(to right bottom,#0ea5e2,#b278c5);
+   font-family: 'Cute_Font', sans-serif;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+
+#main-content {
+   background-color: white;
+   width: 90%;
+   max-width: 700px;
+   height: 600px;
+   border-radius: 10px;
+   display: flex;
+   flex-direction: column;
+   margin: 0 auto;
+   padding: 2rem 0 1rem 2rem;
+}
+
+h1 {
+   font-size: 3rem;
+   color: #0ea5e2;
+   padding-bottom: 1rem;
+}
+
+#input {
+   border: none;
+   padding: 0.7rem 9rem 0.7rem 0.7rem;
+   border-radius: 1rem;
+   background: #e8e8e8;
+   border: 1rem;
+}
+
+label {
+   font-size: 2rem;
+   vertical-align: middle;
+}
+
+p {
+   font-size: 2rem;
+}
+
+#addButton {
+   height: 2.2rem;
+   width: 7rem;
+   color: #fff;
+   background-color: #0ea5e2;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+   transition: background-color 0.3s ease;
+}
+#addButton:hover {
+   background-color: #08719c;
+ }
+ #addButton:focus {
+   background-color: black;
+ }
+#list {
+   overflow-y: auto;
+}
+
+.uniqueToDo {
+   padding-top: 1rem;
+}
+
+
+
