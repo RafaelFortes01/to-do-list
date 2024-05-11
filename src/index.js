@@ -1,37 +1,87 @@
 const input = document.querySelector('#input')
+const addButton = document.querySelector('#addButton')
 const list = document.querySelector('#list')
-const button = document.querySelector('#addButton')
 
-button.addEventListener('click', () => {
+addButton.addEventListener('click', () => {
    
    if(!input.value) {
       alert('Escreva algo')
-      console.log(input.value)
+      return
    }else {
-      const createInput = document.createElement('input')
-      const createLabel = document.createElement('label')
+
       const createDiv = document.createElement('div')
+      const createInputCheckbox = document.createElement('input')
+      const createInputText = document.createElement('input')
+      const createEditButton = document.createElement('button')
+      const createDeleteButton = document.createElement('button')
       let inputValue = input.value
 
 
-      createInput.setAttribute('type', 'checkbox')
-      createInput.setAttribute('name', 'to-do')
-      createInput.classList.add('toDoInputs')
-      createLabel.classList.add('toDoLabels')
       createDiv.classList.add('uniqueToDo')
 
+      createInputCheckbox.setAttribute('type', 'checkbox')
+      createInputCheckbox.setAttribute('name', 'to-do')
+      createInputCheckbox.classList.add('toDoInputs')
+
+      createInputText.setAttribute('readonly', 'readonly')
+      createInputText.classList.add('toDoInputsTextReadonly')
+
+      createEditButton.classList.add('editButton')
+      createEditButton.innerText = 'Editar'
+
+      // Edit Button
+      createEditButton.addEventListener('click', () => {
+
+         if (createEditButton.innerText.toLocaleLowerCase() == 'editar') {
+
+            createInputText.removeAttribute('readonly');
+            createInputText.focus();
+
+            createInputText.classList.add('toDoInputsText')
+            createInputText.classList.remove('toDoInputsTextReadonly')
+
+
+            createEditButton.innerText = 'Salvar'
+            createEditButton.classList.remove('editButton')
+            createEditButton.classList.add('saveButton')
+
+        } else {
+
+            createInputText.setAttribute('readonly', 'readonly');
+
+            createInputText.classList.add('toDoInputsTextReadonly')
+            createInputText.classList.remove('toDoInputsText')
+
+            createEditButton.innerText = 'Editar'
+            createEditButton.classList.remove('saveButton')
+            createEditButton.classList.add('editButton')
+
+        }        
+       });
+      //
+
+      createDeleteButton.classList.add('deleteButton')
+      createDeleteButton.innerText = 'Deletar'
+
+      //Delete Button
+      createDeleteButton.addEventListener('click', () => {
+         if(confirm('Tem certeza que deseja deletar?')){
+            list.removeChild(createDiv)
+         }
+       });
       
-      createLabel.innerHTML = inputValue
+      //
+      
+      createInputText.value = inputValue
 
       list.appendChild(createDiv)
-      createDiv.appendChild(createInput)
-      createDiv.appendChild(createLabel)
+      createDiv.appendChild(createInputCheckbox)
+      createDiv.appendChild(createInputText)
+      createDiv.appendChild(createEditButton)
+      createDiv.appendChild(createDeleteButton)
 
       input.value = ''
    }
 
 })
 
-checkbox.addEventListener('change', () => {
-   alert('Olá')
-})
